@@ -1,0 +1,32 @@
+-- Call this after your colorscheme is loaded
+-- local hl = vim.api.nvim_set_hl
+-- local groups = {
+--   "Normal",
+--   "NormalNC",
+--   "SignColumn",
+--   "VertSplit",
+--   "StatusLine",
+--   "LineNr",
+--   "CursorLine",
+--   "Folded",
+--   "Pmenu",
+--   "PmenuSel",
+--   "TelescopeBorder",
+--   "TelescopeNormal",
+--   "TelescopePromptNormal",
+--   "TelescopePromptBorder",
+--   "TelescopeResultsNormal",
+--   "TelescopeResultsBorder",
+--   "TelescopePreviewNormal",
+--   "TelescopePreviewBorder",
+--   "NormalFloat",
+--   "FloatBorder",
+--   "MasonNormal",
+--   "MasonBorder",
+--   "TroubleNormal",
+--   "TroubleBorder",
+-- }
+--
+-- for _, group in ipairs(groups) do
+--   hl(0, group, { bg = "NONE" })
+-- end

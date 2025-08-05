@@ -97,7 +97,7 @@ function! s:mail()
 	endif
 	let l:mail = $MAIL
 	if strlen(l:mail) == 0
-		let l:mail = "yel-mota@1337.student.ma"
+		let l:mail = "yel-mota@student.1337.ma"
 	endif
 	return l:mail
 endfunction

@@ -51,9 +51,3 @@ require("lazy").setup({
     },
   },
 })
-
--- ~/.config/nvim/lua/config/lazy.lua or lua/lazyvim/config.lua
--- Add this to override LazyVim’s default
---
-
--- config/lazy.lua
