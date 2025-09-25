@@ -2,6 +2,24 @@ local map = vim.keymap.set
 local opts = {noremap = true, silent = true}
 
 
+-- Open horizontal terminal
+vim.keymap.set("n", "<leader>th", function()
+  vim.cmd("split | terminal")  -- split horizontally and open :term
+end, { noremap = true, silent = true, desc = "Horizontal terminal" })
+
+-- Open vertical terminal
+vim.keymap.set("n", "<leader>tv", function()
+  vim.cmd("vsplit | terminal") -- split vertically and open :term
+end, { noremap = true, silent = true, desc = "Vertical terminal" })
+
+
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  callback = function()
+    -- Map <C-d> to close the terminal window
+    vim.api.nvim_buf_set_keymap(0, "t", "<C-d>", "<C-\\><C-n>:close<CR>", { noremap = true, silent = true })
+  end,
+})
 
 -- Save & quit
 map("n", "<leader>w", ":w<CR>", { desc = "Save" })

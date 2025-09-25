@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 vim.opt.termguicolors = true
 
 -- Load core configs
+require("core.autocomands")
 require("core.highlights")
 require("core.options")
 require("core.keymaps")

@@ -4,12 +4,25 @@ local dashboard = require("alpha.themes.dashboard")
 
 -- === Header ===
 dashboard.section.header.val = {
-      "__   _______ _____",
-  "╲ ╲ ╱ ╱  ___│_   _│",
-  " ╲ V ╱╲ `──.  │ │",
-  "  ╲ ╱  `──. ╲ │ │",
-  "  │ │ ╱╲__╱ ╱ │ │",
-  "  ╲_╱ ╲____╱  ╲_╱",
+    "                   ▄",
+  "                  ▟█▙",
+  "                 ▟███▙",
+  "                ▟█████▙",
+  "               ▟███████▙",
+  "              ▂▔▀▜██████▙",
+  "             ▟██▅▂▝▜█████▙",
+  "            ▟█████████████▙",
+  "           ▟███████████████▙",
+  "          ▟█████████████████▙",
+  "         ▟███████████████████▙",
+  "        ▟█████████▛▀▀▜████████▙",
+  "       ▟████████▛      ▜███████▙",
+  "      ▟█████████        ████████▙",
+  "     ▟██████████        █████▆▅▄▃▂",
+  "    ▟██████████▛        ▜█████████▙",
+  "   ▟██████▀▀▀              ▀▀██████▙",
+  "  ▟███▀▘                       ▝▀███▙",
+  " ▟▛▀                               ▀▜▙",
 }
 dashboard.section.header.opts.hl = "AlphaHeader"
 vim.cmd("highlight AlphaHeader guifg=#5f87ff")  -- blue
@@ -41,13 +54,16 @@ dashboard.section.footer.opts.position = "center"
 
 -- === Layout ===
 dashboard.opts.layout = {
-    { type = "padding", val = 10 },
+    { type = "padding", val = 5 },
     dashboard.section.header,
     { type = "padding", val = 5 },
     dashboard.section.buttons,
     { type = "padding", val = 4 },
     dashboard.section.footer,
 }
+
+        -- local function get_datetime()
+        --     return os.date("󰃰 %Y-%m-%d  󰥔 %H:%M:%S")
 
 -- === Apply Alpha dashboard ===
 alpha.setup(dashboard.opts)

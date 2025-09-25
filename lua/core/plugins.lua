@@ -8,6 +8,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
+
+
 require("lazy").setup({
   -- Colorscheme
   { 
@@ -147,7 +150,54 @@ require("lazy").setup({
 	opts = {
 		auto_update = true,
 	},
-	ft = "c",}
+	ft = "c",},
+
+    {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+    },
+
+  {
+    "machakann/vim-highlightedyank",
+    config = function()
+      vim.cmd([[
+        augroup HighlightYank
+          autocmd!
+          autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=200}
+        augroup END
+      ]])
+    end
+  },
+
+{
+  "folke/noice.nvim",
+  dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+  config = function()
+    require("noice").setup({
+      cmdline = {
+        enabled = true,        -- enable custom cmdline
+        view = "cmdline_popup", -- show in the middle
+        position = {
+          row = "50%",         -- vertically centered
+          col = "50%",         -- horizontally centered
+        },
+        size = {
+          width = 40,          -- width of the popup
+        },
+      },
+      messages = {
+        enabled = true,        -- show :w, :q messages, etc.
+        view = "notify",
+      },
+      presets = {
+        command_palette = true, -- nicer command palette
+      },
+    })
+  end,
+}
 
 
 })
