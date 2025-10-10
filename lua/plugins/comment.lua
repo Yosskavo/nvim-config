@@ -1,0 +1,21 @@
+-- require("Comment").setup({
+--     -- change the leader for line comment from gc to gC
+--     toggler = {
+--         line = "<leader>cC",   -- line comment toggle
+--         block = "<leader>cB",  -- block comment toggle
+--     },
+--     -- change the operator-pending mappings from gc/gb to gC/gB
+--     opleader = {
+--         line = "<leader>cC",  
+--         block = "<leader>cB",
+--     },
+--     -- optionally keep extra mappings like comment above/below
+--     extra = {
+--         above = "<leader>cO",
+--         below = "<leader>co",
+--         eol = "<leader>cA",
+--     },
+--     -- ignore empty lines if you want
+--     ignore = "^$",
+-- })
+--

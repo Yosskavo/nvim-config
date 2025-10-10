@@ -12,6 +12,25 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
+
+{
+  "windwp/nvim-autopairs",
+  event = "InsertEnter",
+  config = function()
+    require("nvim-autopairs").setup({})
+  end,
+},
+
+{
+  "echasnovski/mini.icons",
+  version = "*", -- Optional: specify a version or branch
+  config = function()
+    require("mini.icons").setup({
+      style = "glyph", -- Choose 'glyph' for icons or 'ascii' for fallback
+    })
+  end,
+},
+
   -- Colorscheme
   { 
     "folke/tokyonight.nvim", 
@@ -20,7 +39,7 @@ require("lazy").setup({
     config = function()
       require("tokyonight").setup({
         style = "night",
-        transparent = false,
+        transparent = true,
         styles = { comments = { italic = true }, keywords = { italic = true } },
       })
       vim.cmd("colorscheme tokyonight")
@@ -68,7 +87,13 @@ require("lazy").setup({
   },
 
   -- LSP & Completion
-  { "neovim/nvim-lspconfig" },
+  { 
+        "neovim/nvim-lspconfig",
+        config = function()
+            -- local lspconfig = require("lspconfig"),
+        require("lspconfig").clangd.setup({})
+    end,
+    },
   { "hrsh7th/nvim-cmp", dependencies = { "hrsh7th/cmp-nvim-lsp" } },
 
   -- Git signs
@@ -86,9 +111,10 @@ require("lazy").setup({
 
   -- Which-key (leader key popup)
   { 
-    "folke/which-key.nvim", 
-    config = function() require("which-key").setup() end
-  },
+  "folke/which-key.nvim",
+  config = function()
+    require("plugins.whichkey")  -- your config file
+  end  },
 
   -- Trouble (diagnostics panel)
   { 
@@ -128,12 +154,14 @@ require("lazy").setup({
   config = function()
     require("toggleterm").setup({
       size = 15,
-      open_mapping = [[<C-\>]], -- toggle terminal with Ctrl + \
+      open_mapping = [[<C-t>]], -- toggle terminal with Ctrl + t
       shade_terminals = true,
       direction = "float",     -- 'horizontal' | 'vertical' | 'tab' | 'float'
       float_opts = {
         border = "curved",
-      },
+        width = math.floor(vim.o.columns * 0.8),
+        height = math.floor(vim.o.lines * 0.8),
+        },
     })
   end,
 },

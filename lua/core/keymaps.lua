@@ -67,7 +67,7 @@ vim.keymap.set("t", "<C-/>", [[<C-\><C-n><cmd>ToggleTerm<CR>]], { noremap = true
 
 -- norminette
 
-vim.keymap.set("n", "<leader>cf", function()
+vim.keymap.set("n", "<leader>nf", function()
   local file = vim.fn.expand("%")
   vim.cmd("write")  -- save current file first
   vim.cmd("silent! !c_formatter_42 " .. file .. " 2>/dev/null")  -- run it on the file
@@ -102,4 +102,85 @@ vim.keymap.set("n", "<leader><leader>", function()
     local opts = { cwd = vim.loop.cwd() }  -- current directory
     require("telescope.builtin").find_files(opts)
 end, { noremap = true, silent = true, desc = "Telescope find files in cwd" })
+
+vim.keymap.set("n", "<leader>m", "K", { 
+    desc = "Look up man page for word under cursor", 
+    noremap = true, 
+    silent = true 
+})
+
+
+
+
+-- File group
+map("n", "<leader>f", "<Nop>", { desc = "File" })        -- group header
+map("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find File" })
+map("n", "<leader>fn", ":ene <BAR> startinsert<CR>", { desc = "New File" })
+map("n", "<leader>fr", ":Telescope oldfiles<CR>", { desc = "Recent Files" })
+
+-- Git group
+map("n", "<leader>g", "<Nop>", { desc = "Git" })         -- group header
+map("n", "<leader>gc", ":Git commit<CR>", { desc = "Git Commit" })
+map("n", "<leader>gs", ":Git status<CR>", { desc = "Git Status" })
+
+-- Terminal group
+map("n", "<leader>t", "<Nop>", { desc = "Terminal" })    -- group header
+map("n", "<leader>tt", ":ToggleTerm<CR>", { desc = "Toggle Terminal" })
+map("n", "<leader>tv", ":ToggleTerm direction=vertical<CR>", { desc = "Vertical Terminal" })
+
+
+
+
+-- Load Comment.nvim first
+local status, comment = pcall(require, "Comment")
+if not status then
+  return
+end
+
+-- -- Normal mode toggles
+-- vim.keymap.set("n", "<leader>cc", function() comment.toggle.linewise.current() end, { desc = "Toggle line comment" })
+-- vim.keymap.set("n", "<leader>cb", function() comment.toggle.blockwise.current() end, { desc = "Toggle block comment" })
+--
+-- -- Visual mode toggles
+-- vim.keymap.set("v", "<leader>cc", function() comment.toggle.linewise(vim.fn.visualmode()) end, { desc = "Toggle line comment (visual)" })
+-- vim.keymap.set("v", "<leader>cb", function() comment.toggle.blockwise(vim.fn.visualmode()) end, { desc = "Toggle block comment (visual)" })
+--
+-- -- Extra mappings
+-- vim.keymap.set("n", "<leader>co", function() comment.insert.linewise.above() end, { desc = "Comment line above" })
+-- vim.keymap.set("n", "<leader>cO", function() comment.insert.linewise.below() end, { desc = "Comment line below" })
+-- vim.keymap.set("n", "<leader>cA", function() comment.insert.linewise.eol() end, { desc = "Comment at end of line" })
+--
+
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover docs" })
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "References" })
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
+
+-- Manual page for word under cursor
+-- vim.keymap.set("n", "<leader>m", function()
+--   vim.cmd("Man " .. vim.fn.expand("<cword>"))
+-- end, { desc = "Manual for word under cursor" })
+
+-- vim.keymap.set("n", "<S-q>", "<cmd>Man <C-r><C-w><CR>", { desc = "Open man page for word under cursor" })
+-- vim.keymap.set("n", "Q", function()
+--     local word = vim.fn.expand("<cword>")
+--     if word ~= "" then
+--         vim.cmd("Man " .. word)
+--     else
+--         print("No word under cursor")
+--     end
+-- end, { desc = "Open man page for word under cursor" })
+-- vim.keymap.set("n", "Q", function()
+--     local word = vim.fn.expand("<cword>")  -- get word under cursor
+--     if word ~= "" then
+--         vim.cmd("Man " .. vim.fn.shellescape(word))
+--     else
+--         print("No word under cursor")
+--     end
+-- end, { desc = "Open man page for word under cursor", noremap = true, silent = true })
+
+-- vim.keymap.set("n", "<leader>tm", "K", { desc = "Look up man page for word under cursor", noremap = true, silent = true })
+
+
 
