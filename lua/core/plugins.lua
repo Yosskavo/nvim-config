@@ -97,11 +97,30 @@ require("lazy").setup({
   { "hrsh7th/nvim-cmp", dependencies = { "hrsh7th/cmp-nvim-lsp" } },
 
   -- Git signs
-  { 
-    "lewis6991/gitsigns.nvim", 
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function() require("gitsigns").setup() end
-  },
+  -- { 
+  --   "lewis6991/gitsigns.nvim", 
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   config = function() require("gitsigns").setup() end
+  -- },
+
+
+-- 	{
+--   "tanvirtin/vgit.nvim",
+--   dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
+--   event = "VimEnter",
+--   config = function()
+--     require("vgit").setup {}
+--   end,
+-- },
+
+{
+  "TimUntersberger/neogit",
+  dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+  cmd = "Neogit",
+  config = function()
+    require("neogit").setup({})
+  end,
+},
 
   -- Commenting
   { 
@@ -225,8 +244,27 @@ require("lazy").setup({
       },
     })
   end,
-}
+},
+{
+  "folke/todo-comments.nvim",
+  dependencies = { "nvim-lua/plenary.nvim" },
+  opts = {
+  signs = true, -- show icons in the sign column
+  keywords = {
+    FIX = { icon = " ", color = "error", alt = { "FIXME", "BUG" } },
+    TODO = { icon = " ", color = "info" },
+    HACK = { icon = " ", color = "warning" },
+    NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+  },
+  highlight = {
+    multiline = true,
+    before = "",
+    keyword = "wide",
+    after = "fg",
+  },
+  }
 
+}
 
 })
 

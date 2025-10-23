@@ -119,9 +119,10 @@ map("n", "<leader>fn", ":ene <BAR> startinsert<CR>", { desc = "New File" })
 map("n", "<leader>fr", ":Telescope oldfiles<CR>", { desc = "Recent Files" })
 
 -- Git group
-map("n", "<leader>g", "<Nop>", { desc = "Git" })         -- group header
-map("n", "<leader>gc", ":Git commit<CR>", { desc = "Git Commit" })
-map("n", "<leader>gs", ":Git status<CR>", { desc = "Git Status" })
+vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", { desc = "Open Neogit" })
+-- map("n", "<leader>g", "<Nop>", { desc = "Git" })         -- group header
+-- map("n", "<leader>gc", ":Git commit<CR>", { desc = "Git Commit" })
+-- map("n", "<leader>gs", ":Git status<CR>", { desc = "Git Status" })
 
 -- Terminal group
 map("n", "<leader>t", "<Nop>", { desc = "Terminal" })    -- group header
