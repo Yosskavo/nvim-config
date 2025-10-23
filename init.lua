@@ -6,6 +6,7 @@ vim.opt.termguicolors = true
 require("core.autocomands")
 require("core.highlights")
 -- require("core.options")
+require("core.autosave")
 require("core.keymaps")
 require("core.plugins")
 --require("core.c_formatter")
