@@ -14,6 +14,15 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
 {
+  "MagicDuck/grug-far.nvim",
+  dependencies = { "nvim-telescope/telescope.nvim" },
+  cmd = { "GrugFar", "GrugFarCurrentWord" },
+  config = function()
+    require("grug-far").setup()
+  end,
+},
+
+{
   "windwp/nvim-autopairs",
   event = "InsertEnter",
   config = function()

@@ -52,7 +52,7 @@ vim.keymap.set("n", "<leader>fh", "<Cmd>Telescope help_tags<CR>")
 
 vim.keymap.set("n", "<S-l>", "<Cmd>BufferNext<CR>")
 vim.keymap.set("n", "<S-h>", "<Cmd>BufferPrevious<CR>")
-vim.keymap.set("n", "<S-z>", "<Cmd>BufferClose<CR>")
+-- vim.keymap.set("n", "<S-z>", "<Cmd>BufferClose<CR>")
 
 -- windows thing
 
@@ -66,14 +66,16 @@ vim.keymap.set("t", "<C-/>", [[<C-\><C-n><cmd>ToggleTerm<CR>]], { noremap = true
 
 
 -- norminette
+map("n", "<leader>g", "<Nop>", { desc = "git" })        -- group header
 
+map("n", "<leader>n", "<Nop>", { desc = "N" })        -- group header
 vim.keymap.set("n", "<leader>nf", function()
   local file = vim.fn.expand("%")
   vim.cmd("write")  -- save current file first
   vim.cmd("silent! !c_formatter_42 " .. file .. " 2>/dev/null")  -- run it on the file
   vim.cmd("edit")   -- reload file after external formatting
 end, { noremap = true, silent = true, desc = "Format C file (42)" })
-
+vim.keymap.set("n", "<leader>nh", ":Stdheader<CR>", { noremap = true, silent = true })
 
 --------- move lines
 
@@ -109,6 +111,8 @@ vim.keymap.set("n", "<leader>m", "K", {
     silent = true 
 })
 
+-- todo keymaps
+vim.keymap.set("n", "<leader>st", ":TodoTelescope<CR>", { desc = "Search TODOs" })
 
 
 
@@ -129,7 +133,11 @@ map("n", "<leader>t", "<Nop>", { desc = "Terminal" })    -- group header
 map("n", "<leader>tt", ":ToggleTerm<CR>", { desc = "Toggle Terminal" })
 map("n", "<leader>tv", ":ToggleTerm direction=vertical<CR>", { desc = "Vertical Terminal" })
 
-
+-- GrugFar search & replace keymaps
+map("n", "<leader>s", "<Nop>", {desc = "search"})
+vim.keymap.set("n", "<leader>sR", [[:%s/\<<C-r><C-w>\>//gc<Left><Left><Left>]], { desc = "Search and Replace in current file" })
+vim.keymap.set("n", "<leader>sr", "<cmd>GrugFar<CR>", { desc = "Search and Replace (GrugFar)" })
+vim.keymap.set("n", "<leader>sw", "<cmd>GrugFarCurrentWord<CR>", { desc = "Search word under cursor (GrugFar)" })
 
 
 -- Load Comment.nvim first
@@ -184,4 +192,7 @@ vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action
 -- vim.keymap.set("n", "<leader>tm", "K", { desc = "Look up man page for word under cursor", noremap = true, silent = true })
 
 
-
+-- vim.keymap.set("n", "<leader>sR", [[:%s/\<<C-r><C-w>\>//gc<Left><Left><Left>]], {
+--   desc = 'Global Replace w/ Confirmation',
+--   nowait = true, -- Stops Neovim from waiting for a potential longer map
+-- })

@@ -4,6 +4,7 @@
   "barbar.nvim": { "branch": "master", "commit": "fb4369940a07dda35fa4d7f54cf4a36aa00440e6" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "bd5a7d6db125d4654b50eeae9f5217f24bb22fd3" },
   "ftcountline.nvim": { "branch": "main", "commit": "1f7b4ece81013df259f66ac9025c95df2083d3c8" },
+  "grug-far.nvim": { "branch": "main", "commit": "3e72397465f774b01aa38e4fe8e6eecf23d766d9" },
   "indent-blankline.nvim": { "branch": "master", "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba" },
   "lazy.nvim": { "branch": "main", "commit": "db067881fff0fd4be8c00e5bde7492e0e1c77a2f" },
   "lualine.nvim": { "branch": "master", "commit": "3946f0122255bc377d14a59b27b609fb3ab25768" },
