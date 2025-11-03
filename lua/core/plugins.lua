@@ -14,6 +14,11 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
 {
+  'vyfor/cord.nvim',
+  build = ':Cord update',
+  -- opts = {}
+},
+{
   "MagicDuck/grug-far.nvim",
   dependencies = { "nvim-telescope/telescope.nvim" },
   cmd = { "GrugFar", "GrugFarCurrentWord" },
@@ -56,11 +61,11 @@ require("lazy").setup({
   },
 
   -- Treesitter
-  { 
-    "nvim-treesitter/nvim-treesitter", 
-    build = ":TSUpdate", 
-    config = function() require("plugins.treesitter") end
-  },
+  -- { 
+  --   "nvim-treesitter/nvim-treesitter", 
+  --   build = ":TSUpdate", 
+  --   config = function() require("plugins.treesitter") end
+  -- },
 
   -- Telescope
   { 
@@ -254,16 +259,22 @@ require("lazy").setup({
     })
   end,
 },
+
 {
   "folke/todo-comments.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
   opts = {
+	 colors =  
+	 {
+	miss = "#FFA500",
+	 },
   signs = true, -- show icons in the sign column
   keywords = {
     FIX = { icon = " ", color = "error", alt = { "FIXME", "BUG" } },
     TODO = { icon = " ", color = "info" },
     HACK = { icon = " ", color = "warning" },
-    NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+    NOTE = { icon = " ", color = "hint", alt = { "info" } },
+    MISS = { icon = "¿", color = "miss", alt = {"MISSING", "REVIEW"}},
   },
   highlight = {
     multiline = true,
@@ -271,10 +282,25 @@ require("lazy").setup({
     keyword = "wide",
     after = "fg",
   },
-  }
+  },
 
-}
+  },
 
+-- {
+--   "stsewd/spotify.nvim",
+--   build = ":UpdateRemotePlugins",
+--   config = function()
+--     require("spotify").setup()
+--   end,
+--   init = function()
+--     -- Optional mappings.
+--     vim.keymap.set("n", "<leader>ss", ":Spotify play/pause<CR>", { silent = true })
+--     vim.keymap.set("n", "<leader>sj", ":Spotify next<CR>", { silent = true })
+--     vim.keymap.set("n", "<leader>sk", ":Spotify prev<CR>", { silent = true })
+--     vim.keymap.set("n", "<leader>so", ":Spotify show<CR>", { silent = true })
+--     vim.keymap.set("n", "<leader>sc", ":Spotify status<CR>", { silent = true })
+--   end,
+-- },
 })
 
 

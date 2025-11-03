@@ -1,12 +1,13 @@
--- lua/plugins/which-key.lua
-local wk = require("which-key")
 
-wk.setup({
-  plugins = {
-    spelling = { enabled = true },
-  },
+  -- plugins = {
+  --   spelling = { enabled = true },
+  -- },
+require("which-key").setup({
   win = {
-    border = "single",
+    border = "rounded",  -- supported
+    -- position, margin, and padding may not exist yet
+  },
+  layout = {
+    align = "left", -- makes it feel more side-aligned
   },
 })
-
