@@ -1,11 +1,22 @@
--- Auto-add 42-style header for .c and .h files using plugin/stdheader.vim
--- vim.api.nvim_create_autocmd("BufReadPost", {
---   pattern = {"*.c", "*.h"},
---   callback = function()
---     local first_line = vim.fn.getline(1)
---     if not string.match(first_line, "By:") then
---       -- Call the Stdheader command from your Vim plugin
---       vim.cmd("silent! Stdheader")
---     end
---   end,
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--     pattern = { "*.c", "*.h" },
+--     callback = function()
+--         local file = vim.fn.expand("%:p")
+--
+--         vim.fn.jobstart({ "c_formatter_42", file }, {
+--             stdout_buffered = true,
+--             stderr_buffered = true,
+--             on_exit = function(_, exit_code)
+--                 -- reload the file AFTER formatting is done
+--                 vim.schedule(function()
+--                     if exit_code == 0 then
+--                         vim.cmd("silent edit")
+--                         vim.notify("✅ Formatted with c_formatter_42", vim.log.levels.INFO)
+--                     else
+--                         vim.notify("❌ Format failed (maybe missing c_formatter_42?)", vim.log.levels.ERROR)
+--                     end
+--                 end)
+--             end,
+--         })
+--     end,
 -- })

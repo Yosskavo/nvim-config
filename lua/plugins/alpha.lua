@@ -1,4 +1,3 @@
-
 local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 
@@ -34,6 +33,7 @@ dashboard.section.buttons.val = {
     dashboard.button("f", "  Find file", ":Telescope find_files<CR>"),
     dashboard.button("r", "  Recent files", ":Telescope oldfiles<CR>"),
     dashboard.button("c", "  Config", ":Telescope find_files cwd=" .. config_dir .. "<CR>"),
+    dashboard.button("l", "💤 Lazy", ":Lazy<CR>"),
     dashboard.button("q", "  Quit", ":qa<CR>"),
 }
 
@@ -67,6 +67,3 @@ dashboard.opts.layout = {
 
 -- === Apply Alpha dashboard ===
 alpha.setup(dashboard.opts)
-
-
-
