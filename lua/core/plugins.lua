@@ -24,6 +24,14 @@ require("lazy").setup({
 },
 	
 {
+  "kylechui/nvim-surround",
+  version = "*",
+  event = "VeryLazy",
+  config = function()
+    require("plugins.surround")
+  end,
+},
+{
   "windwp/nvim-autopairs",
   event = "InsertEnter",
   config = function()

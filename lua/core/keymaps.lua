@@ -196,3 +196,24 @@ vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action
 --   desc = 'Global Replace w/ Confirmation',
 --   nowait = true, -- Stops Neovim from waiting for a potential longer map
 -- })
+
+-- visual mode mappings: pressing " or ( will surround selection
+-- vim.keymap.set("x", '"', 'c"<c-r>""', { noremap = true, silent = true })
+-- vim.keymap.set("x", "'", "c'<c-r>''", { noremap = true, silent = true })
+-- vim.keymap.set("x", "(", "c(<c-r>\")", { noremap = true, silent = true })
+-- vim.keymap.set("x", "[", "c[<c-r>\"]", { noremap = true, silent = true })
+-- vim.keymap.set("x", "{", "c{<c-r>\"]", { noremap = true, silent = true })
+-- vim.keymap.set("x", "<", "c<<c-r>\"]", { noremap = true, silent = true })
+
+
+-- Surround visual selection without any plugin
+-- local surround = function(open, close)
+--   return string.format('c%s<C-r>"%s', open, close)
+-- end
+--
+-- vim.keymap.set("x", '"',  surround('"', '"'),  { noremap = true, silent = true })
+-- vim.keymap.set("x", "'",  surround("'", "'"),  { noremap = true, silent = true })
+-- vim.keymap.set("x", "(",  surround("(", ")"),  { noremap = true, silent = true })
+-- vim.keymap.set("x", "[",  surround("[", "]"),  { noremap = true, silent = true })
+-- vim.keymap.set("x", "{",  surround("{", "}"),  { noremap = true, silent = true })
+-- vim.keymap.set("x", "<",  surround("<", ">"),  { noremap = true, silent = true })
