@@ -127,24 +127,10 @@ require("lazy").setup({
         require("plugins.lsp").setup({})
     end,
     },
-  { "hrsh7th/nvim-cmp", dependencies = { "hrsh7th/cmp-nvim-lsp" } },
-
-  -- Git signs
-  -- { 
-  --   "lewis6991/gitsigns.nvim", 
-  --   dependencies = { "nvim-lua/plenary.nvim" },
-  --   config = function() require("gitsigns").setup() end
-  -- },
-
-
--- 	{
---   "tanvirtin/vgit.nvim",
---   dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
---   event = "VimEnter",
---   config = function()
---     require("vgit").setup {}
---   end,
--- },
+  { 
+	"hrsh7th/nvim-cmp", 
+	dependencies = { "hrsh7th/cmp-nvim-lsp" } 
+},
 
 {
   "TimUntersberger/neogit",
@@ -178,21 +164,6 @@ require("lazy").setup({
     config = function() require("trouble").setup({}) end
   },
 
-  -- { 
-  --   "lukas-reineke/indent-blankline.nvim",
-  --       lazy = false,
-  --    config = function()
-  --     require("plugins.indent-blankline")
-  --    end
-  -- },
-
--- {
---   "lukas-reineke/indent-blankline.nvim",
---   event = "BufReadPre",  -- load on buffer open
---   config = function()
---     require("plugins.indent-blankline")
---   end,
--- }
 {
   "s1n7ax/nvim-window-picker",
   name = "window-picker",
@@ -294,21 +265,6 @@ require("lazy").setup({
 
   },
 
--- {
---   "stsewd/spotify.nvim",
---   build = ":UpdateRemotePlugins",
---   config = function()
---     require("spotify").setup()
---   end,
---   init = function()
---     -- Optional mappings.
---     vim.keymap.set("n", "<leader>ss", ":Spotify play/pause<CR>", { silent = true })
---     vim.keymap.set("n", "<leader>sj", ":Spotify next<CR>", { silent = true })
---     vim.keymap.set("n", "<leader>sk", ":Spotify prev<CR>", { silent = true })
---     vim.keymap.set("n", "<leader>so", ":Spotify show<CR>", { silent = true })
---     vim.keymap.set("n", "<leader>sc", ":Spotify status<CR>", { silent = true })
---   end,
--- },
 })
 require("plugins.ui")()
 
