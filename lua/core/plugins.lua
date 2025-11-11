@@ -310,5 +310,5 @@ require("lazy").setup({
 --   end,
 -- },
 })
-
+require("plugins.ui")()
 
