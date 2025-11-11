@@ -8,11 +8,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
-
-
 require("lazy").setup({
-
 {
   'vyfor/cord.nvim',
   build = ':Cord update',
@@ -61,11 +57,11 @@ require("lazy").setup({
   },
 
   -- Treesitter
-  -- { 
-  --   "nvim-treesitter/nvim-treesitter", 
-  --   build = ":TSUpdate", 
-  --   config = function() require("plugins.treesitter") end
-  -- },
+  { 
+    "nvim-treesitter/nvim-treesitter", 
+    build = ":TSUpdate", 
+    config = function() require("plugins.treesitter") end
+  },
 
   -- Telescope
   { 
@@ -105,7 +101,7 @@ require("lazy").setup({
         "neovim/nvim-lspconfig",
         config = function()
             -- local lspconfig = require("lspconfig"),
-        require("lspconfig").clangd.setup({})
+        require("plugins.lsp").setup({})
     end,
     },
   { "hrsh7th/nvim-cmp", dependencies = { "hrsh7th/cmp-nvim-lsp" } },
@@ -137,10 +133,13 @@ require("lazy").setup({
 },
 
   -- Commenting
-  { 
-    "numToStr/Comment.nvim", 
-    config = function() require("Comment").setup() end
-  },
+-- plugins/comment.lua
+ {
+    "numToStr/Comment.nvim",
+    config = function()
+        require("plugins.comment")
+    end,
+},
 
   -- Which-key (leader key popup)
   { 
@@ -234,30 +233,16 @@ require("lazy").setup({
   },
 
 {
+{
   "folke/noice.nvim",
-  dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+  dependencies = {
+    "MunifTanjim/nui.nvim",
+    "rcarriga/nvim-notify",
+  },
   config = function()
-    require("noice").setup({
-      cmdline = {
-        enabled = true,        -- enable custom cmdline
-        view = "cmdline_popup", -- show in the middle
-        position = {
-          row = "50%",         -- vertically centered
-          col = "50%",         -- horizontally centered
-        },
-        size = {
-          width = 40,          -- width of the popup
-        },
-      },
-      messages = {
-        enabled = true,        -- show :w, :q messages, etc.
-        view = "notify",
-      },
-      presets = {
-        command_palette = true, -- nicer command palette
-      },
-    })
+    require("plugins.noice").setup()
   end,
+},
 },
 
 {

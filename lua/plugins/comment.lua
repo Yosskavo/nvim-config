@@ -19,3 +19,30 @@
 --     ignore = "^$",
 -- })
 --
+
+
+
+-- lua/plugins/comment.lua
+-- local M = {}
+--
+-- function M.setup()
+-- require("Comment").setup({
+--     mappings = {
+--         basic = false,       -- disables default gc/gcc mappings
+--         extra = false,       -- disables gcO/gco/gcA mappings
+--     },
+--     toggler = {
+--         line = "<leader>c",
+--         block = "<leader>bc",
+--     },
+--     opleader = {
+--         line = "<leader>c",
+--         block = "<leader>bc",
+--     },
+-- })
+-- end
+--
+-- -- call setup when required
+-- M.setup()
+--
+-- return M

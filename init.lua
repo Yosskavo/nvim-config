@@ -2,6 +2,11 @@
 vim.g.mapleader = " "
 vim.opt.termguicolors = true
 
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.python3_host_prog = os.getenv("HOME") .. "/.config/nvim/venv/bin/python"
+--let g:loaded_perl_provider = 0
 -- Load core configs
 require("core.autocomands")
 require("core.highlights")
