@@ -22,12 +22,27 @@ require("lazy").setup({
     require("grug-far").setup()
   end,
 },
-
+	
 {
   "windwp/nvim-autopairs",
   event = "InsertEnter",
   config = function()
     require("nvim-autopairs").setup({})
+  end,
+},
+
+{
+  "Diogo-ss/42-header.nvim",
+  cmd = { "Stdheader" },
+  keys = { "<F1>" },
+  opts = {
+    default_map = true, -- Default mapping <F1> in normal mode.
+    auto_update = true, -- Update header when saving.
+    user = vim.env.USER,        -- <- environment variable USER
+    mail = vim.env.MAIL, -- <- env var MAIL (or EMAIL fallback)
+  },
+  config = function(_, opts)
+    require("42header").setup(opts)
   end,
 },
 
