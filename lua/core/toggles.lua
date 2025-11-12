@@ -1,0 +1,22 @@
+-- -- Ensure global state
+-- _G.cord_enabled = _G.cord_enabled or true
+--
+-- -- Function to toggle Discord Rich Presence
+-- function ToggleCord()
+--   _G.cord_enabled = not _G.cord_enabled
+--   local status = _G.cord_enabled and "✅ Enabled" or "⛔ Disabled"
+--
+--   if _G.cord_enabled then
+--     -- Start or update presence
+--     require("cord").update()  -- updates presence
+--   else
+--     -- "Disable" presence by sending empty activity
+--     require("cord").update({ details = "", state = "" })
+--   end
+--
+--   vim.notify("Discord Rich Presence " .. status, vim.log.levels.INFO, { title = "Cord" })
+-- end
+--
+-- -- Create Neovim command
+-- vim.api.nvim_create_user_command("ToggleCord", ToggleCord, {})
+--

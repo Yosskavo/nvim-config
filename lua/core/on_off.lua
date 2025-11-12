@@ -22,4 +22,5 @@
 
 
 
-vim.keymap.set("n", "<leader>nt", ":ToggleFormatter<CR>", { desc = "Toggle C Formatter" })
+-- vim.keymap.set("n", "<leader>dt", ":ToggleCord<CR>", { desc = "Toggle C Formatter" })
+vim.keymap.set("n", "<leader>nt", ":ToggleFormatter<CR>", { desc = "Toggle Discord" })
