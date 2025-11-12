@@ -14,6 +14,7 @@ require("core.highlights")
 require("core.autosave")
 require("core.keymaps")
 require("core.plugins")
+require("core.on_off")
 --require("core.c_formatter")
 --
 -- -- Use actual tabs for ALL files

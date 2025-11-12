@@ -217,3 +217,31 @@ vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action
 -- vim.keymap.set("x", "[",  surround("[", "]"),  { noremap = true, silent = true })
 -- vim.keymap.set("x", "{",  surround("{", "}"),  { noremap = true, silent = true })
 -- vim.keymap.set("x", "<",  surround("<", ">"),  { noremap = true, silent = true })
+
+
+-- vim.keymap.set("n", "<leader>nt", ":ToggleFormatter<CR>", { desc = "Toggle C Formatter", noremap = true, silent = true })
+-- vim.keymap.set("n", "<leader>nt", ":ToggleFormatter", { desc = "Toggle C Formatter" })
+-- local wk = require("which-key")
+
+-- wk.register({
+--   n = {
+--     name = "Norminette / Formatter",  -- group name
+--     nt = { ":ToggleFormatter<CR>", "Toggle C Formatter" },
+--   }
+-- }, { prefix = "<leader>" })
+
+
+
+-- local wk = require("which-key")
+--
+-- wk.register({
+--   ["<leader>nt"] = {
+--     function()
+--       _G.formatter_enabled = not _G.formatter_enabled
+--       save_formatter_state(_G.formatter_enabled)
+--       local status = _G.formatter_enabled and "✅ Enabled" or "⛔ Disabled"
+--       vim.notify("Formatter " .. status, vim.log.levels.INFO, { title = "c_formatter_42" })
+--     end,
+--     "Toggle C Formatter"
+--   },
+-- })
