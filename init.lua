@@ -10,10 +10,10 @@ vim.g.python3_host_prog = os.getenv("HOME") .. "/.config/nvim/venv/bin/python"
 -- Load core configs
 require("core.autocomands")
 require("core.highlights")
--- require("core.options")
 require("core.autosave")
 require("core.keymaps")
 require("core.plugins")
+require("core.toggles")
 require("core.on_off")
 --require("core.c_formatter")
 --
@@ -51,3 +51,5 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
+vim.cmd("highlight Pmenu guibg=#1e1e2e guifg=#cdd6f4")
+vim.cmd("highlight PmenuSel guibg=#89b4fa guifg=#1e1e2e")

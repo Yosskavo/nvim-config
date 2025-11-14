@@ -20,3 +20,87 @@
 -- -- Create Neovim command
 -- vim.api.nvim_create_user_command("ToggleCord", ToggleCord, {})
 --
+-- Ensure global state
+-- _G.should_enable_cord = _G.should_enable_cord or true
+--
+-- -- Function that checks value
+-- local function cord_enabled()
+--   return _G.should_enable_cord
+-- end
+--
+-- -- Function to setup Cord if enabled
+-- local function setup_cord()
+--   if cord_enabled() then
+--     require("cord").setup({
+--       -- your setup options
+--     })
+--     vim.notify("Discord Rich Presence ✅ Enabled", vim.log.levels.INFO, { title = "Cord" })
+--   else
+--     vim.notify("Discord Rich Presence ⛔ Disabled", vim.log.levels.INFO, { title = "Cord" })
+--   end
+-- end
+--
+-- -- Call setup on startup
+-- setup_cord()
+--
+-- -- Function to toggle the value
+-- local function toggle_cord()
+--   _G.should_enable_cord = not _G.should_enable_cord
+--   vim.notify("Toggling Cord to: " .. (_G.should_enable_cord and "✅ Enabled" or "⛔ Disabled"))
+--   setup_cord() -- re-setup Cord based on new value
+-- end
+--
+-- -- Keymap to toggle Cord (example: leader + dc)
+-- vim.keymap.set("n", "<leader>dc", toggle_cord, { desc = "Toggle Discord Presence" })
+-- local state_file = vim.fn.stdpath("data") .. "/cord_toggle_state.lua"
+--
+-- -- Load saved state if it exists
+-- if vim.fn.filereadable(state_file) == 1 then
+--   local ok, val = pcall(dofile, state_file)
+--   if ok and type(val) == "boolean" then
+--     _G.should_enable_cord = val
+--   else
+--     _G.should_enable_cord = true
+--   end
+-- else
+--   _G.should_enable_cord = true
+-- end
+--
+-- -- Function that checks value
+-- local function cord_enabled()
+--   return _G.should_enable_cord
+-- end
+--
+-- -- Function to setup Cord if enabled
+-- local function setup_cord()
+--   if cord_enabled() then
+--     require("cord").setup({
+--       -- your setup options here
+--     })
+--     vim.notify("Discord Rich Presence ✅ Enabled", vim.log.levels.INFO, { title = "Cord" })
+--   else
+--     vim.notify("Discord Rich Presence ⛔ Disabled", vim.log.levels.INFO, { title = "Cord" })
+--   end
+-- end
+--
+-- -- Call setup on startup
+-- setup_cord()
+--
+-- -- Function to toggle Cord and save the state
+-- local function toggle_cord()
+--   _G.should_enable_cord = not _G.should_enable_cord
+--   vim.notify("Toggling Cord to: " .. (_G.should_enable_cord and "✅ Enabled" or "⛔ Disabled"))
+--
+--   -- Save state to file
+--   local f = io.open(state_file, "w")
+--   if f then
+--     f:write(tostring(_G.should_enable_cord))
+--     f:close()
+--   end
+--
+--   -- Re-setup Cord based on new value
+--   setup_cord()
+-- end
+--
+-- -- Keymap to toggle Cord
+-- vim.keymap.set("n", "<leader>dc", toggle_cord, { desc = "Toggle Discord Presence" })

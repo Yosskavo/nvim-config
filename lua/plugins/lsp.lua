@@ -25,10 +25,16 @@
 local M = {}
 
 function M.setup()
-  local ok, lspconfig = pcall(require, "lspconfig")
-  if not ok then return end
+  local ok_lsp, lspconfig = pcall(require, "lspconfig")
+  if not ok_lsp then return end
 
-  lspconfig.clangd.setup({})
+  -- Add cmp_nvim_lsp capabilities
+  local ok_cmp, cmp_lsp = pcall(require, "cmp_nvim_lsp")
+  local capabilities = ok_cmp and cmp_lsp.default_capabilities() or nil
+
+  lspconfig.clangd.setup({
+    capabilities = capabilities,
+  })
 end
 
 return M

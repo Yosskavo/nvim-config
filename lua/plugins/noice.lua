@@ -3,20 +3,22 @@ local M = {}
 
 M.opts = {
   cmdline = {
-    enabled = true,         -- enable custom cmdline
-    view = "cmdline_popup", -- show in the middle
+    enabled = true,
+    view = "cmdline_popup",
     position = {
-      row = "50%",          -- vertically centered
-      col = "50%",          -- horizontally centered
+      row = "50%",
+      col = "50%",
     },
     size = {
-      width = 40,           -- width of the popup
+      width = 40,
     },
   },
+
   messages = {
-    enabled = true,         -- show :w, :q messages, etc.
+    enabled = true,
     view = "notify",
   },
+
   lsp = {
     override = {
       ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -24,8 +26,20 @@ M.opts = {
       ["cmp.entry.get_documentation"] = true,
     },
   },
+
+  -- ===== add this section =====
+  popupmenu = {
+    enabled = true,
+    max_height = 10,          -- show only 10 items at a time
+    border = {
+      style = "rounded",
+      padding = { 0, 1 },
+    },
+    kind_icons = {},           -- optional
+  },
+
   presets = {
-    command_palette = true, -- nicer command palette
+    command_palette = true,
   },
 }
 
@@ -34,4 +48,3 @@ function M.setup()
 end
 
 return M
-

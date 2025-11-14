@@ -127,9 +127,20 @@ require("lazy").setup({
         require("plugins.lsp").setup({})
     end,
     },
-  { 
+  
+{ 
 	"hrsh7th/nvim-cmp", 
-	dependencies = { "hrsh7th/cmp-nvim-lsp" } 
+
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
+    },
+	config = function()
+		require("plugins.cmp")  -- ← loads cmp.lua config only
+    end,
 },
 
 {
