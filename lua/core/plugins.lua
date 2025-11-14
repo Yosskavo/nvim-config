@@ -9,11 +9,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
--- {
---   'vyfor/cord.nvim',
---   build = ':Cord update',
---   -- opts = {}
--- },
 {
   "MagicDuck/grug-far.nvim",
   dependencies = { "nvim-telescope/telescope.nvim" },
