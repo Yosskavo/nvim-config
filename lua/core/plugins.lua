@@ -9,11 +9,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-{
-  'vyfor/cord.nvim',
-  build = ':Cord update',
-  -- opts = {}
-},
+-- {
+--   'vyfor/cord.nvim',
+--   build = ':Cord update',
+--   -- opts = {}
+-- },
 {
   "MagicDuck/grug-far.nvim",
   dependencies = { "nvim-telescope/telescope.nvim" },
@@ -215,7 +215,8 @@ require("lazy").setup({
 	opts = {
 		auto_update = true,
 	},
-	ft = "c",},
+	ft = {"c", "cpp"},
+	},
 
     {
     "lukas-reineke/indent-blankline.nvim",
