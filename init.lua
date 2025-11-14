@@ -15,7 +15,7 @@ require("core.keymaps")
 require("core.plugins")
 require("core.toggles")
 require("core.on_off")
---require("core.c_formatter")
+require("core.vcord")
 --
 -- -- Use actual tabs for ALL files
 -- vim.opt.expandtab = false

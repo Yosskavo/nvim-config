@@ -1,0 +1,7 @@
+1-> add an AI
+2-> neo-tree should follow the themes
+
+3-> vcord should by default be turn off
+4-> a key for git pull
+
+5-> the file key-maps should be more sorted to user to use
